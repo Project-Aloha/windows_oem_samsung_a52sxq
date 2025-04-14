@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<unattend xmlns="urn:schemas-microsoft-com:unattend">
+  <settings pass="specialize">
+    <component name="Microsoft-Windows-Deployment" processorArchitecture="arm64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <ExtendOSPartition>
+        <Extend>true</Extend>
+      </ExtendOSPartition>
+    </component>
+    <component name="Microsoft-Windows-GPIOButtons" processorArchitecture="arm64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <ConvertibleSlateMode>0</ConvertibleSlateMode>
+    </component>
+    <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="arm64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <DesktopOptimization>
+        <ShowWindowsStoreAppsOnTaskbar>true</ShowWindowsStoreAppsOnTaskbar>
+      </DesktopOptimization>
+      <ShowPowerButtonOnStartScreen>true</ShowPowerButtonOnStartScreen>
+      <ConvertibleSlateModePromptPreference>0</ConvertibleSlateModePromptPreference>
+    </component>
+  </settings>
+  <settings pass="oobeSystem">
+    <component name="Microsoft-Windows-Deployment" processorArchitecture="arm64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <DeviceForm>1</DeviceForm>
+    </component>
+    <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="arm64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <OEMInformation>
+        <SupportURL>https://www.samsung.com/us/support/service/</SupportURL>
+      </OEMInformation>
+      <FirstLogonCommands>
+        <SynchronousCommand>
+          <Description>OOBE Commands 1</Description>
+          <Order>1</Order>
+          <CommandLine>%WINDIR%\System32\mountvol.exe D: /d</CommandLine>
+        </SynchronousCommand>
+		<SynchronousCommand>
+          <Description>OOBE Commands 2</Description>
+          <Order>2</Order>
+          <CommandLine>%WINDIR%\System32\powercfg.exe /hibernate off</CommandLine>
+        </SynchronousCommand>
+        <SynchronousCommand>
+          <Description>OOBE Commands 3</Description>
+          <Order>3</Order>
+          <CommandLine><![CDATA[powershell -ExecutionPolicy RemoteSigned %SystemDrive%\Users\Default\AppData\Local\Samsung\OOBE\ImageConfiguration.ps1]]></CommandLine>
+        </SynchronousCommand>
+      </FirstLogonCommands>
+	  <Themes>
+        <ThemeName>Galaxy</ThemeName>
+        <UWPAppsUseLightTheme>false</UWPAppsUseLightTheme>
+        <SystemUsesLightTheme>false</SystemUsesLightTheme>
+        <DesktopBackground>%WINDIR%\web\wallpaper\oem\Samsung\Next_Gen_AI_PC_OLED_8K.JPG</DesktopBackground>
+      </Themes>
+    </component>
+    <component name="Microsoft-Windows-TabletPC-Platform-Input-Core" processorArchitecture="arm64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <TouchKeyboardAutoInvokeEnabled>True</TouchKeyboardAutoInvokeEnabled>
+    </component>
+  </settings>
+</unattend>

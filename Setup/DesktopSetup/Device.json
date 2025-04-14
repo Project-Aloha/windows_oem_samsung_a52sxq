@@ -1,0 +1,26 @@
+{
+	"model": {
+    "family": "Galaxy",
+    "shortSku": "A52s"
+  },
+  "capabilities": {
+    "fwVersion": {
+      "name": "fwVersion",
+      "visibility": "Show",
+      "properties": {
+        "uefi": {
+          "intValue": 0
+        }
+      }
+    },
+    "supportView": {
+      "name": "supportView",
+      "visibility": "Show",
+      "properties": {
+        "Url": {
+          "stringValue": "https://www.samsung.com/us/support/service/"
+        }
+      }
+    }
+  }
+}
